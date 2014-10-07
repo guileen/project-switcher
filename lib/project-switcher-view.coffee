@@ -16,6 +16,13 @@ class ProjectSwitcherView extends SelectListView
     atom.project.setPath item.fullpath
     @cancel()
 
+    # Close tabs according package settings
+    if atom.config.get('project-switcher.closeOnlySavedTabs')
+      @closeSavedTabs()
+    else
+      @closeAllTabs()
+
+
   getFilterKey: ()->
     'name'
 
@@ -33,3 +40,11 @@ class ProjectSwitcherView extends SelectListView
       @setItems utils.listProjects()
       atom.workspaceView.append(this)
       @focusFilterEditor()
+
+  # Close saved tabs
+  closeSavedTabs: ()->
+    atom.workspaceView.getActivePaneView().find('.tab-bar').trigger('tabs:close-saved-tabs')
+
+  # Close all tabs
+  closeAllTabs: ()->
+    atom.workspaceView.getActivePaneView().find('.tab-bar').trigger('tabs:close-all-tabs')
