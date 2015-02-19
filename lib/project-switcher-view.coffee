@@ -7,7 +7,8 @@ class ProjectSwitcherView extends SelectListView
   initialize: (serializeState) ->
     super
     @addClass 'overlay from-top'
-    atom.workspaceView.command "project-switcher:toggle", => @toggle()
+    @commands = atom.commands.add 'atom-workspace',
+      "project-switcher:toggle", => @toggle()
 
   viewForItem: (item) ->
     "<li>#{item.name}</li>"
@@ -15,6 +16,13 @@ class ProjectSwitcherView extends SelectListView
   confirmed: (item) ->
     atom.project.setPath item.fullpath
     @cancel()
+
+    # Close tabs according package settings
+    if atom.config.get('project-switcher.closeOnlySavedTabs')
+      @closeSavedTabs()
+    else
+      @closeAllTabs()
+
 
   getFilterKey: ()->
     'name'
@@ -31,5 +39,13 @@ class ProjectSwitcherView extends SelectListView
       @detach()
     else
       @setItems utils.listProjects()
-      atom.workspaceView.append(this)
+      atom.views.getView(atom.workspace).appendChild(@element)
       @focusFilterEditor()
+
+  # Close saved tabs
+  closeSavedTabs: ()->
+    atom.workspaceView.getActivePaneView().find('.tab-bar').trigger('tabs:close-saved-tabs')
+
+  # Close all tabs
+  closeAllTabs: ()->
+    atom.workspaceView.getActivePaneView().find('.tab-bar').trigger('tabs:close-all-tabs')
