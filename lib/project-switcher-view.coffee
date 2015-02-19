@@ -7,7 +7,8 @@ class ProjectSwitcherView extends SelectListView
   initialize: (serializeState) ->
     super
     @addClass 'overlay from-top'
-    atom.workspaceView.command "project-switcher:toggle", => @toggle()
+    @commands = atom.commands.add 'atom-workspace',
+      "project-switcher:toggle", => @toggle()
 
   viewForItem: (item) ->
     "<li>#{item.name}</li>"
@@ -38,7 +39,7 @@ class ProjectSwitcherView extends SelectListView
       @detach()
     else
       @setItems utils.listProjects()
-      atom.workspaceView.append(this)
+      atom.views.getView(atom.workspace).appendChild(@element)
       @focusFilterEditor()
 
   # Close saved tabs
