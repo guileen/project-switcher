@@ -1,10 +1,10 @@
 {
-  "name": "project-switcher",
+  "name": "project-switcher2",
   "main": "./lib/project-switcher",
-  "version": "0.1.0",
-  "activationEvents": "project-switcher:toggle",
-  "description": "A short description of your package",
-  "repository": "https://github.com/guileen/project-switcher",
+  "version": "0.1.1",
+  "activationEvents": "project-switcher2:toggle",
+  "description": "A fork from project-switcher. It basically switches between projects within the same folder.",
+  "repository": "https://github.com/carloshfoliveira/project-switcher",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
