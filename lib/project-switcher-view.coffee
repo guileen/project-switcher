@@ -7,7 +7,8 @@ class ProjectSwitcherView extends SelectListView
   initialize: (serializeState) ->
     super
     @addClass 'overlay from-top'
-    atom.workspaceView.command "project-switcher:toggle", => @toggle()
+    atom.commands.add 'atom-text-editor',
+      'project-switcher:toggle': => @toggle()
 
   viewForItem: (item) ->
     "<li>#{item.name}</li>"
