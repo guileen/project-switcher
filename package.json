@@ -1,7 +1,7 @@
 {
   "name": "project-switcher",
   "main": "./lib/project-switcher",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "activationEvents": "project-switcher:toggle",
   "description": "Switch between sibling projects in the same folder.",
   "repository": "https://github.com/guileen/project-switcher",
