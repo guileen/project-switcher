@@ -5,7 +5,7 @@ exports.listProjects = ()->
   exports.getSiblingProjects()
 
 exports.getSiblingProjects = () ->
-  parent = path.dirname atom.project.path
+  parent = path.dirname path.join.apply null, atom.project.getPaths()
   paths = fs.readdirSync parent
   projects = []
   paths.forEach (name) ->
