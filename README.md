@@ -8,4 +8,6 @@ just press `cmd-;`
 
 ![A screenshot of project-switcher package](http://guileen.github.io/img/project-switcher/screenshot-switch.gif)
 
-Maintainer - @ricardofbarros(https://github.com/ricardofbarros)
+## Maintainers
+
+[@ricardofbarros](https://github.com/ricardofbarros)
