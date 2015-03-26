@@ -1,5 +1,7 @@
 {SelectListView} = require 'atom'
+{WorkspaceView} = require 'atom'
 utils = require './utils'
+workspaceView = new WorkspaceView()
 
 module.exports =
 class ProjectSwitcherView extends SelectListView
@@ -32,5 +34,5 @@ class ProjectSwitcherView extends SelectListView
       @detach()
     else
       @setItems utils.listProjects()
-      atom.workspaceView.append(this)
+      workspaceView.append(this)
       @focusFilterEditor()
