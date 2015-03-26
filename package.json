@@ -1,6 +1,6 @@
 {
   "name": "project-switcher",
-  "main": "./lib/project-switcher",
+  "main": "./lib/project-switcher-view",
   "version": "0.1.4",
   "activationEvents": "project-switcher:toggle",
   "description": "Switch between sibling projects in the same folder.",
