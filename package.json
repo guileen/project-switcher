@@ -2,7 +2,9 @@
   "name": "project-switcher",
   "main": "./lib/project-switcher-view",
   "version": "0.2.1",
-  "activationEvents": "project-switcher:toggle",
+  "activationCommands": {
+    "atom-text-editor": ["project-switcher:toggle"]
+  },
   "description": "Switch between sibling projects in the same folder.",
   "repository": "https://github.com/guileen/project-switcher",
   "license": "MIT",
