@@ -53,5 +53,5 @@ class ProjectSwitcherView extends SelectListView
     "<li>#{item.name}</li>"
 
   confirmed: (item) ->
-    atom.project.setPath item.fullpath
+    atom.project.setPaths [item.fullpath]
     @cancel()
