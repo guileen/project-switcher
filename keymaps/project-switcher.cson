@@ -7,5 +7,9 @@
 
 # For more detailed documentation see
 # https://atom.io/docs/latest/advanced/keymaps
-'atom-text-editor':
+
+'.platform-darwin atom-text-editor':
   'cmd-;': 'project-switcher:toggle'
+
+'.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
+  'ctrl-;': 'project-switcher:toggle'
